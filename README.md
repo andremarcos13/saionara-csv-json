@@ -15,11 +15,11 @@ Uma aplicação web simples e eficiente para converter arquivos CSV com estrutur
 ## 🎯 Como Usar
 
 ### 1. Acesse a aplicação
-- URL: [Link da sua aplicação na Vercel]
+- URL: [https://saionara-csv-json-prje.vercel.app/]
 - Ou rode localmente: `npm run dev`
 
 ### 2. Faça upload do CSV
-- Clique em "Escolher arquivo" ou arraste o arquivo
+- Clique em "Escolher arquivo"
 - O arquivo deve ter a estrutura especificada abaixo
 
 ### 3. Converta e baixe
@@ -102,19 +102,6 @@ O arquivo JSON terá esta estrutura:
 4. **Acesse a aplicação**
    - Abra [http://localhost:3000](http://localhost:3000)
 
-## 🌐 Deploy na Vercel
-
-### Deploy Automático
-1. Conecte seu repositório GitHub na Vercel
-2. A Vercel detecta automaticamente que é um projeto Next.js
-3. Deploy automático a cada push
-
-### Deploy Manual
-```bash
-npm run build
-vercel --prod
-```
-
 ## 📁 Estrutura do Projeto
 
 ```
@@ -192,8 +179,6 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 Se você encontrar algum problema ou tiver sugestões:
 
 1. Abra uma issue no GitHub
-2. Entre em contato através do email: [seu-email@exemplo.com]
+2. Entre em contato através do email: [andre@nexusconsultoriams.com.br]
 
 ---
-
-**Desenvolvido com ❤️ para facilitar a conversão de dados CSV para JSON**
