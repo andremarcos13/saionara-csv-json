@@ -1,9 +1,14 @@
 "use client";
 import React, { useState } from "react";
 
+interface JsonData {
+  mb: number;
+  fee: number;
+}
+
 export default function Home() {
   const [csvFile, setCsvFile] = useState<File | null>(null);
-  const [jsonResult, setJsonResult] = useState<any[] | null>(null);
+  const [jsonResult, setJsonResult] = useState<JsonData[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -37,7 +42,7 @@ export default function Home() {
       } else {
         setJsonResult(data);
       }
-    } catch (err) {
+    } catch {
       setError("Erro ao enviar o arquivo.");
     } finally {
       setLoading(false);
@@ -64,7 +69,7 @@ export default function Home() {
 
   return (
     <main style={{ maxWidth: 600, margin: "40px auto", padding: 24 }}>
-      <h1>Saionara</h1>
+      <h1>Saionara Helper - v01</h1>
       <form onSubmit={handleSubmit} style={{ marginBottom: 24 }}>
         <input
           type="file"
@@ -92,10 +97,10 @@ export default function Home() {
       {/* <div style={{ marginTop: 32, color: '#555', fontSize: 14 }}>
         <b>Formato esperado do CSV:</b>
         <pre style={{ background: '#f9f9f9', padding: 8, borderRadius: 4 }}>
-          mb;fee
-          0,00%;0,00%
-          0,10%;0,00%
-          0,20%;0,00%
+mb;fee
+0,00%;0,00%
+0,10%;0,00%
+0,20%;0,00%
         </pre>
         <div>O JSON gerado terá os valores convertidos para decimal.</div>
       </div> */}
