@@ -68,42 +68,85 @@ export default function Home() {
   };
 
   return (
-    <main style={{ maxWidth: 600, margin: "40px auto", padding: 24 }}>
-      <h1>Saionara Helper - v01</h1>
-      <form onSubmit={handleSubmit} style={{ marginBottom: 24 }}>
-        <input
-          type="file"
-          accept=".csv"
-          onChange={handleFileChange}
-          style={{ marginBottom: 12 }}
-        />
-        <br />
-        <button type="submit" disabled={loading} style={{ padding: "8px 24px" }}>
-          {loading ? "Convertendo..." : "Converter"}
-        </button>
-      </form>
-      {error && <div style={{ color: "red", marginBottom: 16 }}>{error}</div>}
-      {jsonResult && (
-        <>
-          <h2>Resultado (JSON)</h2>
-          <pre style={{ background: "black", padding: 12, borderRadius: 6, maxHeight: 300, overflow: "auto" }}>
-            {JSON.stringify(jsonResult, null, 2)}
-          </pre>
-          <button onClick={handleDownload} style={{ marginTop: 12, padding: "8px 24px" }}>
-            Baixar JSON
+    <div className="oriental-container">
+      <div className="oriental-decoration top-left"></div>
+      <div className="oriental-decoration bottom-right"></div>
+
+      {/* Cherry Blossom Petals */}
+      <div className="cherry-petals-container">
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+        <div className="cherry-petal"></div>
+      </div>
+
+      <div className="oriental-header">
+        <h1 className="oriental-title">Saionara Helper</h1>
+        <p className="oriental-subtitle">Conversor CSV para JSON - v01</p>
+      </div>
+
+      <div className="oriental-card">
+        <form onSubmit={handleSubmit} className="oriental-form">
+          <div className="oriental-input-group">
+            <input
+              type="file"
+              accept=".csv"
+              onChange={handleFileChange}
+              className="oriental-file-input"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="oriental-button"
+          >
+            {loading ? (
+              <div className="oriental-loading">
+                <div className="oriental-spinner"></div>
+                Convertendo...
+              </div>
+            ) : (
+              "Converter"
+            )}
           </button>
-        </>
-      )}
-      {/* <div style={{ marginTop: 32, color: '#555', fontSize: 14 }}>
-        <b>Formato esperado do CSV:</b>
-        <pre style={{ background: '#f9f9f9', padding: 8, borderRadius: 4 }}>
-mb;fee
-0,00%;0,00%
-0,10%;0,00%
-0,20%;0,00%
-        </pre>
-        <div>O JSON gerado terá os valores convertidos para decimal.</div>
-      </div> */}
-    </main>
+        </form>
+
+        {error && (
+          <div className="oriental-error">
+            {error}
+          </div>
+        )}
+
+        {jsonResult && (
+          <div className="oriental-result">
+            <h2>Resultado (JSON)</h2>
+            <pre className="oriental-json-display">
+              {JSON.stringify(jsonResult, null, 2)}
+            </pre>
+            <button
+              onClick={handleDownload}
+              className="oriental-button oriental-download-btn"
+            >
+              Baixar JSON
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
