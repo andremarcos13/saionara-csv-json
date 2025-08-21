@@ -121,13 +121,13 @@ export default function Home() {
                 className="oriental-checkbox"
               />
               <span className="oriental-checkbox-text">
-                Manter &quot;20N&quot; na propriedade mb
+                Manter prefixo na propriedade mb
               </span>
             </label>
             <p className="oriental-option-description">
               {keepPrefix
-                ? "O valor será mantido como string (ex: '20N10,9%')"
-                : "O valor será convertido para número decimal (ex: 0.109)"
+                ? "O valor será mantido como string (ex: '20N10,9%', '30N5,2%')"
+                : "O valor será convertido para número decimal (ex: 0.109, 0.052)"
               }
             </p>
           </div>

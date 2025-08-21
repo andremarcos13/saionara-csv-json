@@ -10,11 +10,12 @@ function parsePercentage(str: string): number {
 
 function parseMbValue(mb: string, keepPrefix: boolean): number | string {
   if (keepPrefix) {
-    // Mantém o "20N" e retorna como string
+    // Mantém qualquer prefixo e retorna como string
     return mb;
   } else {
-    // Remove o "20N" e converte para número
-    const cleanMb = mb.replace('20N', '').replace('%', '').replace(',', '.');
+    // Remove qualquer prefixo alfanumérico e converte para número
+    // Regex: remove letras e números no início, seguidos de números, vírgulas, pontos e %
+    const cleanMb = mb.replace(/^[A-Za-z0-9]+/, '').replace('%', '').replace(',', '.');
     return parseFloat(cleanMb) / 100;
   }
 }
