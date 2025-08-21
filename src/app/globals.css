@@ -35,7 +35,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-family: var(--font-geist-sans), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -317,7 +317,7 @@ a {
   border-radius: 8px;
   max-height: 400px;
   overflow: auto;
-  font-family: 'Noto Sans Mono', 'Consolas', monospace;
+  font-family: var(--font-geist-mono), 'Consolas', monospace;
   font-size: 0.85rem;
   line-height: 1.5;
   border: 1px solid var(--border);

@@ -121,7 +121,7 @@ export default function Home() {
                 className="oriental-checkbox"
               />
               <span className="oriental-checkbox-text">
-                Manter "20N" na propriedade mb
+                Manter &quot;20N&quot; na propriedade mb
               </span>
             </label>
             <p className="oriental-option-description">
