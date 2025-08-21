@@ -8,9 +8,21 @@ function parsePercentage(str: string): number {
   return parseFloat(clean) / 100;
 }
 
+function parseMbValue(mb: string, keepPrefix: boolean): number | string {
+  if (keepPrefix) {
+    // Mantém o "20N" e retorna como string
+    return mb;
+  } else {
+    // Remove o "20N" e converte para número
+    const cleanMb = mb.replace('20N', '').replace('%', '').replace(',', '.');
+    return parseFloat(cleanMb) / 100;
+  }
+}
+
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
   const file = formData.get('file') as File;
+  const keepPrefix = formData.get('keepPrefix') === 'true';
 
   if (!file) {
     return NextResponse.json({ error: 'Arquivo não enviado.' }, { status: 400 });
@@ -30,7 +42,7 @@ export async function POST(req: NextRequest) {
   const data = rows.map(row => {
     const [mb, fee] = row.split(delimiter).map(s => s.trim());
     return {
-      mb: parsePercentage(mb),
+      mb: parseMbValue(mb, keepPrefix),
       fee: parsePercentage(fee)
     };
   });

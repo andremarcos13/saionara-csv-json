@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 interface JsonData {
-  mb: number;
+  mb: number | string;
   fee: number;
 }
 
@@ -11,6 +11,7 @@ export default function Home() {
   const [jsonResult, setJsonResult] = useState<JsonData[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [keepPrefix, setKeepPrefix] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError(null);
@@ -31,6 +32,7 @@ export default function Home() {
     setLoading(true);
     const formData = new FormData();
     formData.append("file", csvFile);
+    formData.append("keepPrefix", keepPrefix.toString());
     try {
       const res = await fetch("/api/csv-to-json", {
         method: "POST",
@@ -108,6 +110,26 @@ export default function Home() {
               onChange={handleFileChange}
               className="oriental-file-input"
             />
+          </div>
+
+          <div className="oriental-option-group">
+            <label className="oriental-checkbox-label">
+              <input
+                type="checkbox"
+                checked={keepPrefix}
+                onChange={(e) => setKeepPrefix(e.target.checked)}
+                className="oriental-checkbox"
+              />
+              <span className="oriental-checkbox-text">
+                Manter "20N" na propriedade mb
+              </span>
+            </label>
+            <p className="oriental-option-description">
+              {keepPrefix
+                ? "O valor será mantido como string (ex: '20N10,9%')"
+                : "O valor será convertido para número decimal (ex: 0.109)"
+              }
+            </p>
           </div>
 
           <button
